@@ -2,44 +2,122 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Login & Sign In</title>
 
-    <link 
-      rel="stylesheet" 
-      href="styles/login.css" 
-    /> 
+<link rel="stylesheet" href="styles/login.css">
+
+<style>
+.hidden{
+    display:none;
+}
+</style>
+
 </head>
 
 <body>
 
 <div class="login-box">
+
+<!-- LOGIN -->
+<div id="loginForm">
 <h2>Login</h2>
 
 <form onsubmit="return validarLogin()">
-<input type="text" id="user" placeholder="User" required>
-<input type="password" id="password" placeholder="Password" required>
+<input type="text" id="loginUser" placeholder="User" required>
+<input type="password" id="loginPassword" placeholder="Password" required>
 
 <button type="submit">Login</button>
 </form>
 
-<p id="message"></p>
+<p id="loginMessage"></p>
+
+<p>
+Don't have an account? 
+<a href="#" onclick="mostrarSignIn()">Sign In</a>
+</p>
+
+</div>
+
+<!-- SIGN IN -->
+<div id="signInForm" class="hidden">
+<h2>Sign In</h2>
+
+<form onsubmit="return registrarUsuario()">
+<input type="text" id="newUser" placeholder="User" required>
+<input type="password" id="newPassword" placeholder="Password" required>
+<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+<button type="submit">Register</button>
+</form>
+
+<p id="signMessage"></p>
+
+<p>
+Already have an account? 
+<a href="#" onclick="mostrarLogin()">Login</a>
+</p>
+
+</div>
+
 </div>
 
 <script>
+
+
+function mostrarSignIn(){
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("signInForm").classList.remove("hidden");
+}
+
+function mostrarLogin(){
+    document.getElementById("signInForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+}
+
+/* REGISTRAR USUARIO */
+
+function registrarUsuario(){
+
+    var user = document.getElementById("newUser").value;
+    var password = document.getElementById("newPassword").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+        document.getElementById("signMessage").innerText =
+        "Passwords do not match";
+        return false;
+    }
+
+    localStorage.setItem("usuario", user);
+    localStorage.setItem("password", password);
+
+    alert("User Registered Successfully");
+
+    mostrarLogin();
+
+    return false;
+}
+
+
 function validarLogin(){
 
-    var user = document.getElementById("user").value;
-    var password = document.getElementById("password").value;
+    var user = document.getElementById("loginUser").value;
+    var password = document.getElementById("loginPassword").value;
 
-    if(user === "admin" && password === "1234"){
+    var savedUser = localStorage.getItem("usuario");
+    var savedPassword = localStorage.getItem("password");
+
+    if(user === savedUser && password === savedPassword){
         alert("Login Successful");
         return true;
     }else{
-        document.getElementById("message").innerText="User or password are incorrect";
+        document.getElementById("loginMessage").innerText =
+        "User or password are incorrect";
         return false;
     }
 
 }
+
 </script>
 
 </body>
