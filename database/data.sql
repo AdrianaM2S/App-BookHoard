@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS gestor_bookhoard;
-CREATE DATABASE gestor_bookhoard CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE gestor_bookhoard;
+DROP DATABASE IF EXISTS bookhoard_database;
+CREATE DATABASE bookhoard_database CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE bookhoard_database;
 
 CREATE TABLE role (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -16,14 +16,17 @@ CREATE TABLE user (
     FOREIGN KEY (role_id) REFERENCES role(id)
 );
 
-CREATE TABLE libro (
+CREATE TABLE book (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(150),
-    autor VARCHAR(100),
-    isbn VARCHAR(20),
-    categoria VARCHAR(50),
-    estado ENUM('Disponible', 'Prestado'),
-    anio_publicacion INT
+    title VARCHAR(150),
+    author VARCHAR(100),
+    synopsys VARCHAR(500),
+    cover BLOB,
+    type_book VARCHAR(30),
+    category VARCHAR(50),
+    isbn VARCHAR(20), 
+    publish_date DATE,
+    languege VARCHAR(30),
 );
 
-INSERT INTO role (name) VALUES ('Admin'), ('Bibliotecario'), ('Lector');
+INSERT INTO role (name) VALUES ('Admin'), ('User');
