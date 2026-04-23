@@ -6,7 +6,7 @@
 
 <style>
 
-/* FONDO GENERAL */
+/* FONDO */
 
 body{
     margin:0;
@@ -15,24 +15,32 @@ body{
     color:white;
 }
 
+/* CONTENEDOR */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
 /* HEADER */
 
 .header{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    justify-content:center;
-    padding:15px;
-    gap:15px;
+    padding:25px 0;
 }
 
-/* SEARCH BAR */
+/* SEARCH BAR (ESCALA CORRECTA) */
 
 .search-bar{
-    background:white;
+    width:45%;
+    max-width:450px;
+    padding:12px 18px;
     border-radius:25px;
-    padding:10px 20px;
-    width:60%;
     border:none;
+    font-size:15px;
 }
 
 /* PERFIL */
@@ -47,28 +55,37 @@ body{
 /* SECCIONES */
 
 .section{
-    padding:20px;
+    margin-top:40px;
 }
 
 .section h2{
     margin-bottom:15px;
+    font-size:22px;
 }
 
-/* GRID LIBROS */
+/* GRID HORIZONTAL */
 
 .book-grid{
     display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+    gap:25px;
 }
 
-/* LIBROS (CUADROS VACÍOS) */
+/* CUADROS LIBROS (AHORA MÁS PEQUEÑOS) */
 
 .book{
-    width:120px;
-    height:180px;
+    width:110px;
+    height:170px;
     background:#d9d9d9;
-    border-radius:5px;
+    border-radius:6px;
+
+    transition:0.3s;
+}
+
+/* HOVER */
+
+.book:hover{
+    transform:scale(1.05);
+    cursor:pointer;
 }
 
 </style>
@@ -76,6 +93,8 @@ body{
 </head>
 
 <body>
+
+<div class="container">
 
 <!-- HEADER -->
 
@@ -133,6 +152,8 @@ placeholder="Search Bar">
 <div class="book"></div>
 <div class="book"></div>
 <div class="book"></div>
+
+</div>
 
 </div>
 
