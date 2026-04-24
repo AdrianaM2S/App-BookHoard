@@ -2,86 +2,97 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Book Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookHoard</title>
 
 <style>
 
-/* FONDO */
+
 
 body{
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:#5a5a5a;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#5f5f5f;
     color:white;
 }
 
-/* CONTENEDOR */
+
 
 .container{
     width:90%;
     max-width:1200px;
     margin:auto;
+    padding-top:30px;
 }
 
-/* HEADER */
+
 
 .header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:25px 0;
+    margin-bottom:50px;
 }
 
-/* SEARCH BAR (ESCALA CORRECTA) */
+
+
+.logo{
+    font-size:38px;
+    font-weight:bold;
+}
+
+
 
 .search-bar{
-    width:45%;
-    max-width:450px;
-    padding:12px 18px;
-    border-radius:25px;
+    width:420px;
+    max-width:45%;
+    padding:14px 20px;
     border:none;
-    font-size:15px;
+    border-radius:30px;
+    font-size:16px;
 }
 
-/* PERFIL */
+.search-bar:focus{
+    outline:none;
+}
+
+
 
 .profile{
-    width:40px;
-    height:40px;
-    border-radius:50%;
+    width:45px;
+    height:45px;
     background:black;
+    border-radius:50%;
 }
 
-/* SECCIONES */
+
 
 .section{
-    margin-top:40px;
+    margin-bottom:60px;
 }
 
 .section h2{
-    margin-bottom:15px;
-    font-size:22px;
+    margin-bottom:20px;
+    font-size:30px;
 }
 
-/* GRID HORIZONTAL */
+
 
 .book-grid{
     display:flex;
     gap:25px;
+    flex-wrap:wrap;
 }
 
-/* CUADROS LIBROS (AHORA MÁS PEQUEÑOS) */
+
 
 .book{
-    width:110px;
-    height:170px;
+    width:115px;
+    height:180px;
     background:#d9d9d9;
-    border-radius:6px;
-
-    transition:0.3s;
+    border-radius:8px;
+    transition:0.2s;
 }
-
-/* HOVER */
 
 .book:hover{
     transform:scale(1.05);
@@ -89,72 +100,66 @@ body{
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-<!-- HEADER -->
+
 
 <div class="header">
 
-<input
-type="text"
-class="search-bar"
-placeholder="Search Bar">
+<div class="logo">BookHoard</div>
+
+<input type="text" class="search-bar" placeholder="Search Bar">
 
 <div class="profile"></div>
 
 </div>
 
-<!-- RECOMENDACIONES -->
+
 
 <div class="section">
-
-<h2>Recomendaciones</h2>
+<h2>Recomendacions</h2>
 
 <div class="book-grid">
-
 <div class="book"></div>
 <div class="book"></div>
 <div class="book"></div>
-
+<div class="book"></div>
+<div class="book"></div>
+<div class="book"></div>
+</div>
 </div>
 
-</div>
 
-<!-- BESTSELLERS -->
 
 <div class="section">
-
 <h2>Bestsellers</h2>
 
 <div class="book-grid">
-
 <div class="book"></div>
 <div class="book"></div>
 <div class="book"></div>
-
+<div class="book"></div>
+<div class="book"></div>
+<div class="book"></div>
+</div>
 </div>
 
-</div>
-
-<!-- FANTASIA -->
 
 <div class="section">
-
-<h2>Fantasia</h2>
+<h2>Fantasy</h2>
 
 <div class="book-grid">
-
 <div class="book"></div>
 <div class="book"></div>
 <div class="book"></div>
-
+<div class="book"></div>
+<div class="book"></div>
+<div class="book"></div>
 </div>
-
 </div>
 
 </div>
