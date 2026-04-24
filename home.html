@@ -7,8 +7,6 @@
 
 <style>
 
-
-
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
@@ -31,7 +29,7 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:50px;
+    margin-bottom:20px;
 }
 
 
@@ -43,9 +41,13 @@ body{
 
 
 
+.search-box{
+    position:relative;
+}
+
 .search-bar{
     width:420px;
-    max-width:45%;
+    max-width:45vw;
     padding:14px 20px;
     border:none;
     border-radius:30px;
@@ -54,6 +56,31 @@ body{
 
 .search-bar:focus{
     outline:none;
+}
+
+
+
+.filters{
+    display:none;
+    position:absolute;
+    top:60px;
+    left:0;
+    background:transparent;
+    gap:15px;
+    flex-wrap:wrap;
+    width:420px;
+}
+
+.filters button{
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.filters.show{
+    display:flex;
 }
 
 
@@ -107,12 +134,25 @@ body{
 <div class="container">
 
 
-
 <div class="header">
 
 <div class="logo">BookHoard</div>
 
-<input type="text" class="search-bar" placeholder="Search Bar">
+<div class="search-box">
+
+<input 
+type="text"
+class="search-bar"
+placeholder="Search Bar"
+onclick="toggleFilters()">
+
+<div class="filters" id="filters">
+<button>Best seller</button>
+<button>Author</button>
+<button>Category</button>
+</div>
+
+</div>
 
 <div class="profile"></div>
 
@@ -148,6 +188,7 @@ body{
 </div>
 </div>
 
+<!-- FANTASY -->
 
 <div class="section">
 <h2>Fantasy</h2>
@@ -163,6 +204,25 @@ body{
 </div>
 
 </div>
+
+<script>
+
+function toggleFilters(){
+    document.getElementById("filters").classList.toggle("show");
+}
+
+document.addEventListener("click", function(e){
+
+let search = document.querySelector(".search-box");
+let filters = document.getElementById("filters");
+
+if(!search.contains(e.target)){
+    filters.classList.remove("show");
+}
+
+});
+
+</script>
 
 </body>
 </html>
