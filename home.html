@@ -7,6 +7,8 @@
 
 <style>
 
+/* BODY */
+
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
@@ -14,7 +16,7 @@ body{
     color:white;
 }
 
-
+/* CONTENEDOR */
 
 .container{
     width:90%;
@@ -23,23 +25,23 @@ body{
     padding-top:30px;
 }
 
-
+/* HEADER */
 
 .header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:30px;
 }
 
-
+/* LOGO */
 
 .logo{
     font-size:38px;
     font-weight:bold;
 }
 
-
+/* SEARCH */
 
 .search-box{
     position:relative;
@@ -52,38 +54,14 @@ body{
     border:none;
     border-radius:30px;
     font-size:16px;
+    cursor:pointer;
 }
 
 .search-bar:focus{
     outline:none;
 }
 
-
-
-.filters{
-    display:none;
-    position:absolute;
-    top:60px;
-    left:0;
-    background:transparent;
-    gap:15px;
-    flex-wrap:wrap;
-    width:420px;
-}
-
-.filters button{
-    padding:12px 20px;
-    border:none;
-    border-radius:12px;
-    font-size:16px;
-    cursor:pointer;
-}
-
-.filters.show{
-    display:flex;
-}
-
-
+/* PERFIL */
 
 .profile{
     width:45px;
@@ -92,7 +70,7 @@ body{
     border-radius:50%;
 }
 
-
+/* SECCIONES */
 
 .section{
     margin-bottom:60px;
@@ -103,15 +81,13 @@ body{
     font-size:30px;
 }
 
-
+/* LIBROS */
 
 .book-grid{
     display:flex;
     gap:25px;
     flex-wrap:wrap;
 }
-
-
 
 .book{
     width:115px;
@@ -126,6 +102,88 @@ body{
     cursor:pointer;
 }
 
+/* PANEL SEARCH */
+
+.search-panel{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#f2f2f2;
+    z-index:999;
+    color:black;
+    padding:30px;
+    overflow:auto;
+}
+
+.search-panel.show{
+    display:block;
+}
+
+.search-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.search-header{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+/* BOTON FLECHA */
+
+.back-btn{
+    width:60px;
+    height:50px;
+    border:none;
+    border-radius:12px;
+    font-size:28px;
+    cursor:pointer;
+    background:white;
+}
+
+/* INPUT PANEL */
+
+.search-panel-input{
+    flex:1;
+    padding:14px 20px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:18px;
+}
+
+.search-content h3{
+    font-size:30px;
+    margin:30px 0 20px;
+}
+
+/* OPCIONES */
+
+.option-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.option-card{
+    background:white;
+    border-radius:12px;
+    padding:35px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option-card:hover{
+    transform:scale(1.03);
+}
+
 </style>
 </head>
 
@@ -133,32 +191,25 @@ body{
 
 <div class="container">
 
+<!-- HEADER -->
 
 <div class="header">
 
 <div class="logo">BookHoard</div>
 
 <div class="search-box">
-
-<input 
+<input
 type="text"
 class="search-bar"
 placeholder="Search Bar"
-onclick="toggleFilters()">
-
-<div class="filters" id="filters">
-<button>Best seller</button>
-<button>Author</button>
-<button>Category</button>
-</div>
-
+onclick="openSearch()">
 </div>
 
 <div class="profile"></div>
 
 </div>
 
-
+<!-- RECOMMENDATIONS -->
 
 <div class="section">
 <h2>Recommendations</h2>
@@ -173,7 +224,7 @@ onclick="toggleFilters()">
 </div>
 </div>
 
-
+<!-- BESTSELLERS -->
 
 <div class="section">
 <h2>Bestsellers</h2>
@@ -188,7 +239,7 @@ onclick="toggleFilters()">
 </div>
 </div>
 
-
+<!-- FANTASY -->
 
 <div class="section">
 <h2>Fantasy</h2>
@@ -205,22 +256,44 @@ onclick="toggleFilters()">
 
 </div>
 
+<!-- PANEL SEARCH -->
+
+<div class="search-panel" id="searchPanel">
+
+<div class="search-content">
+
+<div class="search-header">
+
+<button class="back-btn" onclick="closeSearch()">←</button>
+
+<input
+type="text"
+class="search-panel-input"
+placeholder="Search books...">
+
+</div>
+
+<h3>Search by</h3>
+
+<div class="option-grid">
+<div class="option-card">Best Seller</div>
+<div class="option-card">Author</div>
+<div class="option-card">Category</div>
+</div>
+
+</div>
+
+</div>
+
 <script>
 
-function toggleFilters(){
-    document.getElementById("filters").classList.toggle("show");
+function openSearch(){
+    document.getElementById("searchPanel").classList.add("show");
 }
 
-document.addEventListener("click", function(e){
-
-let search = document.querySelector(".search-box");
-let filters = document.getElementById("filters");
-
-if(!search.contains(e.target)){
-    filters.classList.remove("show");
+function closeSearch(){
+    document.getElementById("searchPanel").classList.remove("show");
 }
-
-});
 
 </script>
 
