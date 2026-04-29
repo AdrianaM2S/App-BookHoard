@@ -41,3 +41,7 @@ button{
 button:hover{
     background:#0037FF;
 }
+
+.hidden{
+    display:none;
+}
