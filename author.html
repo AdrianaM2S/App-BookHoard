@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search by Author</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#5f5f5f;
+    color:white;
+    padding:25px;
+
+    opacity:0;
+    transform:scale(0.98);
+    transition:0.25s ease;
+}
+
+
+body.loaded{
+    opacity:1;
+    transform:scale(1);
+}
+
+
+.page-out{
+    opacity:0;
+    transform:scale(0.98);
+    transition:0.25s ease;
+}
+
+
+.author-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.back-btn{
+    background:#ddd;
+    border:none;
+    border-radius:10px;
+    padding:12px 16px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.author-tag{
+    background:#ddd;
+    color:black;
+    padding:12px 25px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+
+.search-author{
+    width:100%;
+    padding:16px;
+    border-radius:12px;
+    border:none;
+    margin:20px 0;
+    font-size:16px;
+}
+
+
+.top-btn{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:15px;
+}
+
+.register-btn{
+    background:#ddd;
+    border:none;
+    border-radius:10px;
+    padding:10px 18px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+
+.book-item{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:25px 0;
+    border-top:1px solid rgba(255,255,255,0.2);
+}
+
+.book-img{
+    width:90px;
+    height:130px;
+    background:#ccc;
+    border-radius:6px;
+}
+
+
+.btns{
+    display:flex;
+    gap:15px;
+    margin-left:10px;
+}
+
+.small-btn{
+    background:#ddd;
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    min-width:90px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="author-header">
+    <button class="back-btn" onclick="goBack()">←</button>
+    <div class="author-tag">Author</div>
+</div>
+
+
+<input class="search-author" placeholder="Search author...">
+
+
+<div class="top-btn">
+    <button class="register-btn">Register Book</button>
+</div>
+
+
+<div class="book-item">
+    <div class="book-img"></div>
+
+    <div class="btns">
+        <button class="small-btn">To Read</button>
+        <button class="small-btn">⬇</button>
+        <button class="small-btn">Add</button>
+    </div>
+</div>
+
+
+<div class="book-item">
+    <div class="book-img"></div>
+
+    <div class="btns">
+        <button class="small-btn">To Read</button>
+        <button class="small-btn">Add</button>
+    </div>
+</div>
+
+
+<div class="book-item">
+    <div class="book-img"></div>
+
+    <div class="btns">
+        <button class="small-btn">To Read</button>
+        <button class="small-btn">Add</button>
+    </div>
+</div>
+
+<script>
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+});
+
+
+function goBack(){
+    document.body.classList.add("page-out");
+
+    setTimeout(() => {
+        window.location.href = "home.html";
+    }, 250);
+}
+
+</script>
+
+</body>
+</html>

@@ -16,7 +16,14 @@ body{
     justify-content:center;
 }
 
-/* CONTENEDOR PRINCIPAL */
+
+.page-out{
+    opacity:0;
+    transform:scale(0.98);
+    transition:0.25s ease;
+}
+
+
 .container{
     width:100%;
     max-width:1200px;
@@ -25,7 +32,7 @@ body{
     box-sizing:border-box;
 }
 
-/* HEADER */
+
 .header{
     display:flex;
     justify-content:space-between;
@@ -38,7 +45,7 @@ body{
     font-weight:bold;
 }
 
-/* SEARCH */
+
 .search-box{
     flex:1;
     display:flex;
@@ -54,11 +61,7 @@ body{
     font-size:16px;
 }
 
-.search-bar:focus{
-    outline:none;
-}
 
-/* PERFIL */
 .profile{
     width:45px;
     height:45px;
@@ -66,7 +69,6 @@ body{
     border-radius:50%;
 }
 
-/* SECCIONES */
 .section{
     margin-bottom:60px;
 }
@@ -76,78 +78,88 @@ body{
     margin-bottom:20px;
 }
 
-/* LIBROS */
 .book-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
     gap:20px;
-    justify-content:center;
 }
 
 .book{
     width:100%;
-    aspect-ratio: 2 / 3;
+    aspect-ratio:2/3;
     background:#d9d9d9;
     border-radius:8px;
 }
 
-/* SEARCH PANEL */
+
 .search-panel{
     display:none;
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:#5f5f5f;
+    inset:0;
+    background:rgba(0,0,0,0.6);
     z-index:999;
-    padding:25px;
-    box-sizing:border-box;
+    justify-content:center;
+    align-items:flex-start;
+    padding-top:120px;
 }
 
 .search-panel.show{
-    display:block;
+    display:flex;
+}
+
+.search-content{
+    width:90%;
+    max-width:700px;
+    background:#5f5f5f;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .search-header{
     display:flex;
-    gap:15px;
-    margin-bottom:25px;
+    gap:10px;
+    margin-bottom:20px;
 }
 
 .back-btn{
-    width:60px;
+    width:50px;
     border:none;
-    border-radius:14px;
-    font-size:28px;
+    border-radius:12px;
+    font-size:24px;
     cursor:pointer;
 }
 
 .search-panel-input{
     flex:1;
     border:none;
-    border-radius:14px;
-    padding:14px 20px;
-    font-size:18px;
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:16px;
+    outline:none;
 }
 
-/* OPTIONS */
 .option-grid{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+    gap:12px;
 }
 
 .option-card{
     background:white;
     color:black;
-    padding:12px 22px;
+    padding:14px;
     border-radius:12px;
-    font-size:18px;
+    text-align:center;
     cursor:pointer;
+    transition:0.2s;
 }
 
-/* SIDE TAB (MÁS ANCHO) */
+.option-card:hover{
+    transform:scale(1.03);
+}
+
+
 .side-tabs{
     position:fixed;
     right:5px;
@@ -166,11 +178,6 @@ body{
     font-size:20px;
     font-weight:bold;
     cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-.side-tab:hover{
-    background:#dcdcdc;
 }
 
 </style>
@@ -185,7 +192,7 @@ body{
 <div class="logo">BookHoard</div>
 
 <div class="search-box">
-<input type="text" class="search-bar" placeholder="Search Bar" onclick="openSearch()">
+<input class="search-bar" placeholder="Search Bar" onclick="openSearch()">
 </div>
 
 <div class="profile"></div>
@@ -196,14 +203,12 @@ body{
 <h2>Recommendations</h2>
 <div class="book-grid">
 <div class="book"></div><div class="book"></div><div class="book"></div>
-<div class="book"></div><div class="book"></div><div class="book"></div>
 </div>
 </div>
 
 <div class="section">
 <h2>Bestsellers</h2>
 <div class="book-grid">
-<div class="book"></div><div class="book"></div><div class="book"></div>
 <div class="book"></div><div class="book"></div><div class="book"></div>
 </div>
 </div>
@@ -212,29 +217,37 @@ body{
 <h2>Fantasy</h2>
 <div class="book-grid">
 <div class="book"></div><div class="book"></div><div class="book"></div>
-<div class="book"></div><div class="book"></div><div class="book"></div>
 </div>
 </div>
 
 </div>
 
-<!-- SHELF BUTTON -->
+
 <div class="side-tabs">
 <div class="side-tab" onclick="goShelves()">Shelf</div>
 </div>
 
-<!-- SEARCH PANEL -->
+
 <div class="search-panel" id="searchPanel">
+
+<div class="search-content">
 
 <div class="search-header">
 <button class="back-btn" onclick="closeSearch()">←</button>
-<input type="text" class="search-panel-input" placeholder="Search Bar">
+<input class="search-panel-input" placeholder="Search Bar">
 </div>
 
 <div class="option-grid">
+
 <div class="option-card">Best seller</div>
-<div class="option-card">Autor</div>
+
+
+<div class="option-card" onclick="goToAuthor()">Autor</div>
+
 <div class="option-card">Categoria</div>
+
+</div>
+
 </div>
 
 </div>
@@ -251,6 +264,15 @@ function closeSearch(){
 
 function goShelves(){
     window.location.href = "shelf.html";
+}
+
+
+function goToAuthor(){
+    document.body.classList.add("page-out");
+
+    setTimeout(() => {
+        window.location.href = "author.html";
+    }, 250);
 }
 
 </script>
