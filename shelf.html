@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shelves</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#5f5f5f;
+
+    opacity:0;
+    transform:scale(0.98);
+    transition:0.25s ease;
+}
+
+body.loaded{
+    opacity:1;
+    transform:scale(1);
+}
+
+.page-out{
+    opacity:0;
+    transform:scale(0.98);
+}
+
+
+.top-bar{
+    display:flex;
+    align-items:center;
+    background:#d9d9d9;
+}
+
+
+.back-btn{
+    padding:15px 20px;
+    font-size:22px;
+    cursor:pointer;
+    border:none;
+    background:#cfcfcf;
+}
+
+
+.tabs{
+    display:flex;
+    flex:1;
+}
+
+.tab{
+    flex:1;
+    text-align:center;
+    padding:20px;
+    font-size:22px;
+    font-weight:bold;
+    border-left:1px solid #aaa;
+}
+
+
+.container{
+    max-width:1200px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+
+.header-row{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+}
+
+.create-btn{
+    background:#ddd;
+    border:none;
+    padding:12px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+
+.shelf{
+    background:#e5e5e5;
+    padding:20px;
+    margin-bottom:25px;
+    border:1px solid #aaa;
+    border-radius:6px;
+}
+
+
+.shelf-title{
+    margin-bottom:15px;
+    font-weight:bold;
+    color:#333;
+    font-size:18px;
+}
+
+
+.book-row{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+
+.book{
+    width:100px;
+    height:150px;
+    background:#cfcfcf;
+    border:1px solid #999;
+    border-radius:4px;
+}
+
+
+@media (max-width:600px){
+    .book{
+        width:70px;
+        height:110px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="top-bar">
+
+    <button class="back-btn" onclick="goBack()">←</button>
+
+    <div class="tabs">
+        <div class="tab">Shelfs</div>
+        <div class="tab">Tags</div>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="header-row">
+        <button class="create-btn">Crear Shelf</button>
+    </div>
+
+   
+    <div class="shelf">
+        <div class="shelf-title">Libros (4)</div>
+
+        <div class="book-row">
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+        </div>
+    </div>
+
+
+    <div class="shelf">
+        <div class="shelf-title">Libros Leídos (2)</div>
+
+        <div class="book-row">
+            <div class="book"></div>
+            <div class="book"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+});
+
+
+function goBack(){
+    document.body.classList.add("page-out");
+
+    setTimeout(() => {
+        window.location.href = "home.html";
+    }, 250);
+}
+
+</script>
+
+</body>
+</html>

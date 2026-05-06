@@ -20,12 +20,10 @@ body{
     transition:0.25s ease;
 }
 
-
 .page-out{
     opacity:0;
     transform:scale(0.98);
 }
-
 
 .container{
     width:100%;
@@ -34,7 +32,6 @@ body{
     padding:40px 20px;
     box-sizing:border-box;
 }
-
 
 .header{
     display:flex;
@@ -47,7 +44,6 @@ body{
     font-size:38px;
     font-weight:bold;
 }
-
 
 .search-box{
     flex:1;
@@ -64,14 +60,12 @@ body{
     font-size:16px;
 }
 
-
 .profile{
     width:45px;
     height:45px;
     background:black;
     border-radius:50%;
 }
-
 
 .section{
     margin-bottom:60px;
@@ -81,7 +75,6 @@ body{
     font-size:28px;
     margin-bottom:20px;
 }
-
 
 .book-grid{
     display:grid;
@@ -95,7 +88,6 @@ body{
     background:#d9d9d9;
     border-radius:8px;
 }
-
 
 .search-panel{
     display:none;
@@ -156,7 +148,6 @@ body{
     cursor:pointer;
 }
 
-/* SIDE TAB */
 .side-tabs{
     position:fixed;
     right:5px;
@@ -200,6 +191,7 @@ body{
 <h2>Recommendations</h2>
 <div class="book-grid">
 <div class="book"></div><div class="book"></div><div class="book"></div>
+<div class="book"></div><div class="book"></div>
 </div>
 </div>
 
@@ -207,6 +199,7 @@ body{
 <h2>Bestsellers</h2>
 <div class="book-grid">
 <div class="book"></div><div class="book"></div><div class="book"></div>
+<div class="book"></div><div class="book"></div>
 </div>
 </div>
 
@@ -214,16 +207,15 @@ body{
 <h2>Fantasy</h2>
 <div class="book-grid">
 <div class="book"></div><div class="book"></div><div class="book"></div>
+<div class="book"></div><div class="book"></div>
 </div>
 </div>
 
 </div>
-
 
 <div class="side-tabs">
 <div class="side-tab" onclick="goShelves()">Shelf</div>
 </div>
-
 
 <div class="search-panel" id="searchPanel">
 
@@ -261,8 +253,6 @@ function closeSearch(){
 function goShelves(){
     window.location.href = "shelf.html";
 }
-
-
 
 function goToAuthor(){
     document.body.classList.add("page-out");
