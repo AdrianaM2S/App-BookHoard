@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Book</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#5f5f5f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+
+
+.container{
+    width:100%;
+    max-width:650px;
+    background:#707070;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+
+
+.back-btn{
+    width:55px;
+    height:40px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    font-size:22px;
+    cursor:pointer;
+    margin-bottom:30px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    transform:scale(1.05);
+}
+
+
+
+.page-title{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:30px;
+    color:white;
+}
+
+
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+
+
+.left-side,
+.right-side{
+    display:flex;
+    flex-direction:column;
+}
+
+
+
+label{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:8px;
+    color:white;
+}
+
+
+
+.input-line,
+textarea,
+select,
+input[type="number"],
+input[type="date"]{
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+}
+
+
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+
+
+.cover-box{
+    width:150px;
+    height:210px;
+    border:3px dashed white;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#808080;
+    margin-bottom:20px;
+}
+
+.cover-box input{
+    width:120px;
+}
+
+
+
+.button-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.register-btn{
+    padding:14px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.register-btn:hover{
+    transform:scale(1.05);
+}
+
+
+
+@media(max-width:768px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    .page-title{
+        font-size:28px;
+    }
+
+    .cover-box{
+        width:100%;
+        height:220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="window.location.href='home.html'">←</button>
+
+    
+    <h1 class="page-title">Register Book</h1>
+
+   
+    <div class="form-grid">
+
+        
+        <div class="left-side">
+
+            <label>Title</label>
+            <input type="text" class="input-line" placeholder="Enter book title">
+
+            <label>Author</label>
+            <input type="text" class="input-line" placeholder="Enter author name">
+
+            <label>Synopsis</label>
+            <textarea placeholder="Enter the book synopsis"></textarea>
+
+            <label>ISBN</label>
+            <input type="text" class="input-line" placeholder="Enter ISBN">
+
+        </div>
+
+        <div class="right-side">
+
+            <label>Cover</label>
+
+            <div class="cover-box">
+                <input type="file">
+            </div>
+
+            <label>Book Type</label>
+
+            <select>
+                <option>Select</option>
+                <option>Hardcover</option>
+                <option>Paperback</option>
+                <option>Digital</option>
+            </select>
+
+            <label>Genre</label>
+
+            <textarea placeholder="Example: fantasy, horror"></textarea>
+
+            <label>Pages</label>
+            <input type="number" placeholder="0">
+
+            <label>Publication Date</label>
+            <input type="date">
+
+            <label>Language</label>
+
+            <select>
+                <option>Select</option>
+                <option>English</option>
+                <option>Spanish</option>
+                <option>French</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="button-container">
+        <button class="register-btn">Register Book</button>
+    </div>
+
+</div>
+
+</body>
+</html>

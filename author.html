@@ -19,19 +19,16 @@ body{
     transition:0.25s ease;
 }
 
-
 body.loaded{
     opacity:1;
     transform:scale(1);
 }
-
 
 .page-out{
     opacity:0;
     transform:scale(0.98);
     transition:0.25s ease;
 }
-
 
 .author-header{
     display:flex;
@@ -57,7 +54,6 @@ body.loaded{
     font-weight:bold;
 }
 
-
 .search-author{
     width:100%;
     padding:16px;
@@ -66,7 +62,6 @@ body.loaded{
     margin:20px 0;
     font-size:16px;
 }
-
 
 .top-btn{
     display:flex;
@@ -83,7 +78,6 @@ body.loaded{
     font-size:14px;
 }
 
-
 .book-item{
     display:flex;
     align-items:center;
@@ -98,7 +92,6 @@ body.loaded{
     background:#ccc;
     border-radius:6px;
 }
-
 
 .btns{
     display:flex;
@@ -121,29 +114,15 @@ body.loaded{
 
 <body>
 
-
 <div class="author-header">
     <button class="back-btn" onclick="goBack()">←</button>
     <div class="author-tag">Author</div>
 </div>
 
-
 <input class="search-author" placeholder="Search author...">
 
-
 <div class="top-btn">
-    <button class="register-btn">Register Book</button>
-</div>
-
-
-<div class="book-item">
-    <div class="book-img"></div>
-
-    <div class="btns">
-        <button class="small-btn">To Read</button>
-        <button class="small-btn">⬇</button>
-        <button class="small-btn">Add</button>
-    </div>
+    <button class="register-btn" onclick="goRegister()">Register Book</button>
 </div>
 
 
@@ -156,6 +135,14 @@ body.loaded{
     </div>
 </div>
 
+<div class="book-item">
+    <div class="book-img"></div>
+
+    <div class="btns">
+        <button class="small-btn">To Read</button>
+        <button class="small-btn">Add</button>
+    </div>
+</div>
 
 <div class="book-item">
     <div class="book-img"></div>
@@ -168,11 +155,9 @@ body.loaded{
 
 <script>
 
-
 window.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("loaded");
 });
-
 
 function goBack(){
     document.body.classList.add("page-out");
@@ -180,6 +165,10 @@ function goBack(){
     setTimeout(() => {
         window.location.href = "home.html";
     }, 250);
+}
+
+function goRegister(){
+    window.location.href = "registerbook.html";
 }
 
 </script>
