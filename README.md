@@ -14,6 +14,28 @@ Nuestro objetivo con este website es ofrecer un método para categorizar libros 
 El público objetivo para BookHoard son los lectores y fans de la literatura. Esas personas que les interesa leer libros y descubrir más libros para leer y quieren tener un sitio donde pueden tener un catalogo de libros que han leido o que quieren leer.
 
 ## Tecnologías utilizadas
+- Para que se utilizo
+- HTML
+Para crear las páginas del website.
+ - MySQL
+Para crear la base de datos.
+- Python
+Para codificar el Backend del website.
+- CSS
+Para darle una apariencia más atractiva al website
+- Flask
+Servidor web y renderizado de templates.
+- Flask-SQLAlchemy
+ORM para la base de datos SQLite.
+- Flask-Login
+Autenticación y sesión de usuarios.
+- Flask-WTF
+Manejo de formularios (presente como dependencia general).
+- email-validator
+Validación de correo electrónico en formularios.
+ 
+- PyMySQL
+ Adaptador MySQL / MariaDB (aunque actualmente se usa SQLite local).
 
 ## Arquitectura general 
 
