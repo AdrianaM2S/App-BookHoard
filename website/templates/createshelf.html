@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Página para crear una nueva estantería seleccionando libros del usuario -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating Shelf</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/createshelf.css') }}">
+
+<body>
+<div class="container">
+
+    <button class="back-btn" onclick="goBack()">←</button>
+
+    <h2 style="color:white; margin-bottom:20px;">Create Shelf</h2>
+
+    <form method="POST">
+        <label style="color:white; display:block; margin-bottom:8px; font-weight:bold;">Shelf Title</label>
+        <input class="info-box" type="text" name="shelf_title" placeholder="Example: My favorite books" style="width:100%; margin-bottom:20px;">
+
+        <div style="color:white; margin-bottom:12px;">Select the books you want to save:</div>
+        <div class="book-row">
+            {% if books and books|length > 0 %}
+                {% for book in books %}
+                <label class="book-card">
+                    <input type="checkbox" name="book_id" value="{{ book.id }}" style="margin-bottom:8px;">
+                    <div class="book-cover-card">
+                        {% if book.cover_src %}
+                        <img src="{{ book.cover_src }}" alt="{{ book.title }} cover">
+                        {% else %}
+                        <div class="no-cover">No cover</div>
+                        {% endif %}
+                    </div>
+                    <div class="book-card-title">{{ book.title }}</div>
+                    <div class="book-card-status">{% if book.owned == 'true' %}Owned{% else %}{{ book.status|capitalize }}{% endif %}</div>
+                </label>
+                {% endfor %}
+            {% else %}
+                <p style="color:white;">No books available for this action.</p>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="save-btn" style="width:100%; margin-top:20px;">Create Shelf</button>
+    </form>
+
+</div>
+
+<script>
+function goBack(){
+    window.location.href = "{{ url_for('views.shelf') }}";
+}
+</script>
+</body>
+</html>

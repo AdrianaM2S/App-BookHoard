@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Book</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/registerbook.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">←</button>
+
+    
+    <h1 class="page-title">Register Book</h1>
+
+    <form method="POST" action="{{ url_for('views.registerbook') }}" enctype="multipart/form-data"> 
+    <div class="form-grid">
+
+
+        <div class="left-side">
+
+            <label>Title*</label>
+            <input type="text" class="input-line" name="title" placeholder="Enter book title">
+
+            <label>Author*</label>
+            <input type="text" class="input-line" name="author" placeholder="Enter author name">
+
+            <label>Synopsis*</label>
+            <textarea placeholder="Enter the book synopsis" name="synopsis"></textarea>
+
+            <label>ISBN*</label>
+            <input type="text" class="input-line" name="isbn" placeholder="Enter ISBN">
+
+        </div>
+
+        <div class="right-side">
+
+            <label>Cover</label>
+
+            <div class="cover-box">
+                <input type="file" name="cover">
+            </div>
+
+            <label>Book Type*</label>
+
+            <select name="book_type">
+                <option>Select</option>
+                <option value="Hardcover">Hardcover</option>
+                <option value="Paperback">Paperback</option>
+                <option value="Digital">Digital</option>
+            </select>
+
+            <label>Genre*</label>
+
+            <select name="genre">
+                <option>Select</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Biography">Biography</option>
+                <option value="Romance">Romance</option>
+                <option value="Horror">Horror</option>
+            </select>
+
+            <label>Pages*</label>
+            <input type="number" name="pages" placeholder="0">
+
+            <label>Publication Date*</label>
+            <input type="date" name="publish_date">
+
+            <label>Language*</label>
+
+            <select name="language">
+                <option>Select</option>
+                <option value="English">English</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="button-container">
+        <button class="register-btn">Register Book</button>
+    </div>
+    </form>
+</div>
+<script>
+    function goBack(){
+    document.body.classList.add("page-out");
+
+    setTimeout(() => {
+        window.location.href = "{{ url_for('views.home') }}";
+    }, 250);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Herramientas y librerías utilizadas
+# Flask: servidor web y renderizado de templates
+# Flask-SQLAlchemy: ORM para la base de datos SQLite
+# Flask-Login: autenticación y sesión de usuarios
+# Flask-WTF: manejo de formularios (presente como dependncia general)
+# email-validator: validación de correo electrónico en formularios
+# PyMySQL: adaptador MySQL / MariaDB (aunque actualmente se usa SQLite local)
+
+Flask
+Flask-SQLAlchemy
+Flask-Login
+Flask-WTF
+email-validator
+PyMySQL

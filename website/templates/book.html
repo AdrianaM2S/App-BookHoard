@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- Página de detalle de libro: muestra metadata y estado de lectura/propiedad para el usuario actual -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Details</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+    <button class="back-btn" onclick="goBack()">←</button>
+
+    <div class="form-grid">
+        <div class="right-side">
+            <div class="cover-box">
+                <img src="{{ cover_src }}" alt="Book cover">
+            </div>
+        </div>
+
+        <div class="left-side">
+           
+
+            <label>Title</label>
+            <div class="info-box">{{ book.title }}</div>
+
+            <label>Author</label>
+            <div class="info-box">{{ book.author }}</div>
+
+            <label>Publication Date</label>
+            <div class="info-box">{{ book.publish_date }}</div>
+
+            <label>Pages</label>
+            <div class="info-box">{{ book.pages }}</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="form-grid">
+        <div>
+            <label>Book Type</label>
+            <div class="info-box">{{ book.type_book }}</div>
+        </div>
+
+        <div>
+            <label>Language</label>
+            <div class="info-box">{{ book.language }}</div>
+        </div>
+
+        <div>
+            <label>ISBN</label>
+            <div class="info-box">{{ book.isbn }}</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <label>Genre</label>
+    <div class="info-box">{{ book.category }}</div>
+
+    <hr>
+
+    <label>Synopsis</label>
+    <textarea readonly>{{ book.synopsis }}</textarea> 
+    
+    {% if current_user.is_authenticated %}
+            <form class="status-form" method="POST">
+                <label>Owned</label>
+                <select name="owned" class="info-box">
+                    <option value="not owned" {% if not status or not status.owned %}selected{% endif %}>No</option>
+                    <option value="owned" {% if status and status.owned == "owned" %}selected{% endif %}>Yes</option>
+                </select>
+
+                <label>Reading status</label>
+                <select name="reading_status" class="info-box">
+                    <option value="not read" {% if status and status.reading_status == 'not read' %}selected{% endif %}>Not read</option>
+                    <option value="reading" {% if status and status.reading_status == 'reading' %}selected{% endif %}>Reading</option>
+                    <option value="finished" {% if status and status.reading_status == 'finished' %}selected{% endif %}>Finished</option>
+                </select>
+
+                <button type="submit" class="save-btn">Save status</button>
+            </form>
+            {% else %}
+            <div class="status-form">
+                <p style="color:white;">You need to log in to save the status of the book.</p>
+            </div>
+            {% endif %}
+</div>
+
+<script>
+function goBack(){
+    window.location.href = "{{ url_for('views.home') }}";
+}
+</script>
+</body>
+</html>

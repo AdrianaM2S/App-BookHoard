@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- Página de estanterías: presenta libros del usuario según estado y estanterías creadas -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shelves</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/shelf.css') }}">
+</head>
+
+<body>
+
+
+<div class="top-bar">
+
+    <button class="back-btn" onclick="goBack()">←</button>
+
+    <div class="tabs">
+        <div class="tab">Shelfs</div>
+        <div class="tab">Tags</div>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="header-row">
+        <button class="create-btn" onclick="goCreate()">Create Shelf</button>
+    </div>
+        
+        
+
+    <div class="shelf">
+        <div class="shelf-title">Owned Books ({{ owned_books|length }})</div>
+
+        <div class="book-row">
+            {% if owned_books and owned_books|length > 0 %}
+                {% for book in owned_books %}
+                <a href="{{ url_for('views.book', id=book.id) }}" class="book-link">
+                    <div class="book">
+                        {% if book.cover_src %}
+                        <img src="{{ book.cover_src }}" alt="{{ book.title }} cover" style="width:100%;height:100%;object-fit:cover;">
+                        {% else %}
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#333;">No cover</div>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endfor %}
+            {% else %}
+                <div class="book">No books</div>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="shelf">
+        <div class="shelf-title">Read Books ({{ read_books|length }})</div>
+
+        <div class="book-row">
+            {% if read_books and read_books|length > 0 %}
+                {% for book in read_books %}
+                <a href="{{ url_for('views.book', id=book.id) }}" class="book-link">
+                    <div class="book">
+                        {% if book.cover_src %}
+                        <img src="{{ book.cover_src }}" alt="{{ book.title }} cover" style="width:100%;height:100%;object-fit:cover;">
+                        {% else %}
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#333;">No cover</div>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endfor %}
+            {% else %}
+                <div class="book">No books</div>
+            {% endif %}
+        </div>
+    </div>
+    
+    
+            {% if shelf_list and shelf_list|length > 0 %}
+                {% for shelf in shelf_list %}
+                <div class="shelf">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+                        <div class="shelf-title">{{ shelf.name }} ({{ shelf.count }})</div>
+                        <form method="POST" action="{{ url_for('views.delete_shelf') }}" style="margin:0;">
+                            <input type="hidden" name="shelf_name" value="{{ shelf.name }}">
+                            <button type="submit" class="create-btn" style="background:#f44336; color:white;">Delete</button>
+                        </form>
+                    </div>
+                    <div class="book-row">
+                        {% for book in shelf.books %}
+                        <a href="{{ url_for('views.book', id=book.id) }}" class="book-link">
+                            <div class="book">
+                                {% if book.cover_src %}
+                                <img src="{{ book.cover_src }}" alt="{{ book.title }} cover" style="width:100%;height:100%;object-fit:cover;">
+                                {% else %}
+                                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#333;">No cover</div>
+                                {% endif %}
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div ></div>
+            {% endif %}
+        
+    </div>
+</div>
+
+<script>
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+});
+
+
+function goBack(){
+    document.body.classList.add("page-out");
+
+    setTimeout(() => {
+        window.location.href = "{{ url_for('views.home') }}";
+    }, 250);
+}
+
+function goCreate(){
+    window.location.href = "{{ url_for('views.createshelf') }}";
+}
+
+</script>
+
+</body>
+</html>

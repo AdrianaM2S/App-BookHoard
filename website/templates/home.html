@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- Página principal: muestra lista de libros y enlaces de navegación -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookHoard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="logo">BookHoard</div>
+
+<div class="search-box">
+<input class="search-bar" placeholder="Search Bar" onclick="openSearch()">
+</div>
+
+<div class="profile"></div>
+
+</div>
+
+<div class="section">
+<h2>Recommendations</h2>
+<div class="book-grid">
+    {% for book in books %}
+    <a href="{{ url_for('views.book', id=book.id) }}" class="book-link">
+        <div class="book">
+            {% if book.cover_src %}
+            <img src="{{ book.cover_src }}" alt="{{ book.title }} cover" class="book-cover">
+            {% else %}
+            <div class="cover-placeholder">No cover</div>
+            {% endif %}
+        </div>
+    </a>
+    {% else %}
+    <div class="book">No books available</div>
+    {% endfor %}
+</div>
+</div>
+
+<div class="section">
+<h2>Bestsellers</h2>
+<div class="book-grid">
+    {% for book in books %}
+    <a href="{{ url_for('views.book', id=book.id) }}" class="book-link">
+        <div class="book">
+            {% if book.cover_src %}
+            <img src="{{ book.cover_src }}" alt="{{ book.title }} cover" class="book-cover">
+            {% else %}
+            <div class="cover-placeholder">No cover</div>
+            {% endif %}
+        </div>
+    </a>
+    {% else %}
+    <div class="book">No books available</div>
+    {% endfor %}
+</div>
+</div>
+</div>
+
+
+</div>
+
+<div class="side-tabs">
+<div class="side-tab" onclick="goShelves()">Shelf</div>
+</div>
+
+<div class="search-panel" id="searchPanel">
+
+<div class="search-content">
+
+<div class="search-header">
+<button class="back-btn" onclick="closeSearch()">←</button>
+<input class="search-panel-input" placeholder="Search Bar">
+</div>
+
+<div class="option-grid">
+
+<div class="option-card" onclick="goToBest()">Best seller</div>
+
+<div class="option-card" onclick="goToAuthor()">Autor</div>
+
+<div class="option-card" onclick="goToCategories()">Categories</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openSearch(){
+    document.getElementById("searchPanel").classList.add("show");
+}
+
+function closeSearch(){
+    document.getElementById("searchPanel").classList.remove("show");
+}
+
+function goShelves(){
+    window.location.href = "{{ url_for('views.shelf') }}";
+}
+
+function goToAuthor(){
+    document.body.classList.add("page-out");
+    setTimeout(()=> window.location.href="{{ url_for('views.author') }}", 250);
+}
+
+function goToBest(){
+    document.body.classList.add("page-out");
+    setTimeout(()=> window.location.href="{{ url_for('views.bestsellers') }}", 250);
+}
+
+function goToCategories(){
+    document.body.classList.add("page-out");
+    setTimeout(()=> window.location.href="{{ url_for('views.categories') }}", 250);
+}
+
+</script>
+
+</body>
+</html>

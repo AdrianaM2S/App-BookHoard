@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search by Author</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/author.css') }}">
+</head>
+
+<body>
+
+<div class="author-header">
+    <button class="back-btn" onclick="goBack()">←</button>
+    <div class="author-tag">Author</div>
+</div>
+
+<input class="search-author" placeholder="Search author...">
+
+<div class="top-btn">
+    <button class="register-btn" onclick="goRegister()">Register Book</button>
+</div>
+
+
+<div class="book-item">
+    <div class="book-img"></div>
+
+    <div class="btns">
+        <button class="small-btn">To Read</button>
+        <button class="small-btn">Add</button>
+    </div>
+</div>
+
+<div class="book-item">
+    <div class="book-img"></div>
+
+    <div class="btns">
+        <button class="small-btn">To Read</button>
+        <button class="small-btn">Add</button>
+    </div>
+</div>
+
+<div class="book-item">
+    <div class="book-img"></div>
+
+    <div class="btns">
+        <button class="small-btn">To Read</button>
+        <button class="small-btn">Add</button>
+    </div>
+</div>
+
+<script>
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+});
+
+function goBack(){
+    document.body.classList.add("page-out");
+
+    setTimeout(() => {
+        window.location.href = "{{ url_for('views.home') }}";
+    }, 250);
+}
+
+function goRegister(){
+    window.location.href = "{{ url_for('views.registerbook') }}";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Categories</title>
-
-<style>
 
 body{
     margin:0;
@@ -88,49 +80,3 @@ body.loaded{
 .category-item:hover{
     background:rgba(255,255,255,0.1);
 }
-
-</style>
-</head>
-
-<body>
-
-<div class="header">
-    <button class="back-btn" onclick="goBack()">←</button>
-    <div class="title-tag">Categories</div>
-</div>
-
-
-<div class="top-btn">
-    <button class="register-btn" onclick="goRegister()">Register Book</button>
-</div>
-
-<input class="search" placeholder="Search category...">
-
-<div class="category-item">Fantasy</div>
-<div class="category-item">Science Fiction</div>
-<div class="category-item">Romance</div>
-<div class="category-item">Horror</div>
-<div class="category-item">Mystery</div>
-
-<script>
-
-window.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("loaded");
-});
-
-function goBack(){
-    document.body.classList.add("page-out");
-    setTimeout(() => {
-        window.location.href = "home.html";
-    }, 250);
-}
-
-
-function goRegister(){
-    window.location.href = "registerbook.html";
-}
-
-</script>
-
-</body>
-</html>
