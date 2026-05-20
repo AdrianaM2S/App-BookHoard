@@ -57,6 +57,7 @@ Validación de correo electrónico en formularios.
 
 ## Evidencia del uso de SCRUM 
 
+
 ## Evidencia del uso de testing
 
 ## Estado actual del proyecto
@@ -71,5 +72,5 @@ En proceso.
 Mejoras que queremos implementar despues es lograr la funcion de review con la calculacion y la funcion de los tags para los shelfs. Y la funcion de calculacion para recomendaciones especificas basadas en el catalogo del usuario.
 
 ## Reflexión final 
-
+Para ambos esta es nuestra primera aplicación que codificamos desde cero, sin tener código de base otorgado por un profesor. Por esa razón hubo que haber mucha comunicación entre los dos de lo que queríamos hacer con el proyecto, cuáles eran nuestras fortalezas y si uno tenía dificultad con el código. Una situaciones que ocurrió en al principio de crear la aplicación fueron los problemas de crear la base de datos y lograr que se conectaran a las páginas de HTML. Ambos tuvimos que trabajar juntos para buscar cuál era el problema para solucionarlo. Otra situación que pasó fue con la página de “review” y sistema de “tags. La única diferencia entre esta situación y la anterior fue que no pudimos encontrar cómo solucionarlas, al final ambos nos quedamos en acuerdo que debíamos trabajar en otras partes de la aplicación. En la oportunidad que pudiésemos mejorar la aplicación en el futuro, añadiríamos las páginas de review y el sistema de ‘tags”, al igual que un método de búsqueda por “search bar”. En conclusión, los dos nos divertimos en creando esta aplicación desde cero y nos sentimos más cómodos en poder crear más aplicaciones en el futuro considerando.
 
