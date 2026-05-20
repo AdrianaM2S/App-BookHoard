@@ -40,8 +40,16 @@ Validación de correo electrónico en formularios.
 ## Arquitectura general 
 
 ##  Componentes
+- Pagina de login con opcion de sgin up
+- Sign up para resgitrar el usuario
+- Home page
+- boton de shelf que lleva a pagina de shelf
+- serach bar con botones de Author, Bestseller y Categories que lo lleva a su respectiva pagina
+- boton de registro que va a la pantalla de resgitrar un libro que aparece despues en el home page
+- boton de creaer shelf dentro del shelf agregandos libros a shelfs que crea el usuario
 
 ## Instrucciones para ejecutar el proyecto 
+
 
 ## Estructura del repositorio
 
@@ -52,13 +60,11 @@ Validación de correo electrónico en formularios.
 ## Evidencia del uso de testing
 
 ## Estado actual del proyecto
+En proceso.
 
 ## Mejoras futuras
 Mejoras que queremos implementar despues es lograr la funcion de review con la calculacion y la funcion de los tags para los shelfs. Y la funcion de calculacion para recomendaciones especificas basadas en el catalogo del usuario.
 
-## Presentaciones
-
-## Capturas clave
-
 ## Reflexión final 
+
 
