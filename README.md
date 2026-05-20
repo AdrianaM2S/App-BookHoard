@@ -49,7 +49,7 @@ Validación de correo electrónico en formularios.
 - boton de creaer shelf dentro del shelf agregandos libros a shelfs que crea el usuario
 
 ## Instrucciones para ejecutar el proyecto 
-Para poder ejecutar el proyecto tienes que descargas laas heramientas que estan en el file requirement.txt. Despuesde eso puedes ejecutar el proyecto y correrlo. Si quieres poder ver la base de datos debes ir al file bookhoard_database.db en el folder instance. Cuando estes el file puedes conectarlo al pluging que tengas de MYSQL.
+Para poder ejecutar el proyecto tienes que descargas laas heramientas que estan en el file requirement.txt. Despuesde eso puedes ejecutar el proyecto con solo correr el file main.py Si quieres poder ver la base de datos debes ir al file bookhoard_database.db en el folder instance. Cuando estes el file puedes conectarlo al pluging que tengas de MYSQL.
 
 ## Estructura del repositorio
 
