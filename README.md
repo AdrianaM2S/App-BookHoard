@@ -64,8 +64,8 @@ En proceso.
 
 ## Enlase de Videos
 
->Video Tecnivo [https://youtu.be/aKhv1pMXJZw](https://youtu.be/aKhv1pMXJZw)
->Vidio de Flujo [https://youtu.be/3xLNTX4fcvA](https://youtu.be/3xLNTX4fcvA)
+- Video Tecnivo [https://youtu.be/aKhv1pMXJZw](https://youtu.be/aKhv1pMXJZw)
+- Vidio de Flujo [https://youtu.be/3xLNTX4fcvA](https://youtu.be/3xLNTX4fcvA)
 
 ## Mejoras futuras
 Mejoras que queremos implementar despues es lograr la funcion de review con la calculacion y la funcion de los tags para los shelfs. Y la funcion de calculacion para recomendaciones especificas basadas en el catalogo del usuario.
